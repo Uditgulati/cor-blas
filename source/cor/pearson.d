@@ -1,6 +1,6 @@
 module cor.pearson;
 
-import cblas : dot, gemm, Transpose, Order;
+import cblas : dot, syrk, Transpose, Order, Uplo;
 import std.stdio;
 import std.math : sqrt;
 
@@ -9,8 +9,6 @@ import cor.utils: mean;
 double pearson_vecvec(const double* x, const double* y, const int n) {
   double[] minusmean_x = new double[n];
   double[] minusmean_y = new double[n];
-
-  double normx = 0.0, normy = 0.0;
 
   double meanx = mean(x, n);
   double meany = mean(y, n);
@@ -22,11 +20,11 @@ double pearson_vecvec(const double* x, const double* y, const int n) {
   }
 
   //calc dot product
-  double dp = dot(n, x, 1, y, 1);
-  writefln("%f\n", dp);
+  double dp = dot(n, minusmean_x.ptr, 1, minusmean_y.ptr, 1);
 
-  //calc normx
-  //calc normx
+  //calc normx & normy
+  double normx = dot(n, minusmean_x.ptr, 1, minusmean_x.ptr, 1);
+  double normy = dot(n, minusmean_y.ptr, 1, minusmean_y.ptr, 1);
 
   double cor = dp / sqrt(normx * normy);
   return cor;

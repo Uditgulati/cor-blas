@@ -1,6 +1,6 @@
 module cor.utils;
 
-double mean(const double* x, int n) {
+double mean(const double* x, const int n) {
   double sum = 0.0;
 
   for(int i = 0; i < n; i++) {
@@ -8,8 +8,4 @@ double mean(const double* x, int n) {
   }
 
   return (sum / cast(double)n);
-}
-
-double crossprod() {
-  return 0.0;
 }
