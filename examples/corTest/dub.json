@@ -1,0 +1,8 @@
+{
+	"name": "cortest",
+ 	"dependencies": {
+		"cor": { "path": "../../" }
+	},
+  "libs": ["openblas"],
+  "targetType": "executable"
+}
