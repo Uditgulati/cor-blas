@@ -1,0 +1,2 @@
+module cor.bicor;
+
