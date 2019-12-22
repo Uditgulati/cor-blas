@@ -1,5 +1,5 @@
 {
-	"name": "cortest",
+	"name": "corexample",
  	"dependencies": {
 		"cor": { "path": "../../" }
 	},
