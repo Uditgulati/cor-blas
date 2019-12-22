@@ -1,8 +1,8 @@
 module cor.utils;
 
 import std.stdio;
-import std.algorithm.sorting;
-import std.typecons;
+import std.algorithm.sorting; //sort() method
+import std.typecons;  //Tulpe
 
 double mean(const double* x, const int n) {
   double sum = 0.0;
@@ -12,6 +12,15 @@ double mean(const double* x, const int n) {
   }
 
   return (sum / cast(double)n);
+}
+
+double median(const double* x, const int n) {
+  if(n % 2) { //odd length
+    return x[n / 2];
+  }
+  else {  //even legth
+    return (x[n/2] + x[n/2 - 1]) / 2.00;
+  }
 }
 
 double* rank(double* x, const int n) {
