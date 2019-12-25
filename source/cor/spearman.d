@@ -4,9 +4,11 @@ import cblas : dot, syrk, Transpose, Order, Uplo;
 import std.stdio;
 import std.math : sqrt;
 
-import cor.utils : mean, rank;
+import cor.utils : mean, rank, initializeIfNotAlreadyDone;
 
 double spearman_vecvec(const double* x, const double* y, const int n) {
+  initializeIfNotAlreadyDone();
+  
   double[] copy_x = new double[n];
   double[] copy_y = new double[n];
 

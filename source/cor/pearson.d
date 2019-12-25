@@ -4,9 +4,11 @@ import cblas : dot, syrk, Transpose, Order, Uplo;
 import std.stdio;
 import std.math : sqrt;
 
-import cor.utils: mean;
+import cor.utils: mean, initializeIfNotAlreadyDone;
 
-double pearson_vecvec(const double* x, const double* y, const int n) {
+extern (C) double pearson_vecvec(const double* x, const double* y, const int n) {
+  initializeIfNotAlreadyDone();
+
   double[] minusmean_x = new double[n];
   double[] minusmean_y = new double[n];
 

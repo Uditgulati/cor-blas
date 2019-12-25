@@ -3,6 +3,16 @@ module cor.utils;
 import std.stdio;
 import std.algorithm.sorting; //sort() method
 import std.typecons;  //Tulpe
+import core.runtime: Runtime;
+
+bool initialized = false;
+
+void initializeIfNotAlreadyDone() {
+  if (!initialized) {
+    Runtime.initialize();
+    initialized = true;
+  }
+}
 
 double mean(const double* x, const int n) {
   double sum = 0.0;
