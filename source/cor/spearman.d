@@ -6,9 +6,9 @@ import std.math : sqrt;
 
 import cor.utils : mean, rank, initializeIfNotAlreadyDone;
 
-double spearman_vecvec(const double* x, const double* y, const int n) {
+extern (C) double spearman_vecvec(const double* x, const double* y, const int n) {
   initializeIfNotAlreadyDone();
-  
+
   double[] copy_x = new double[n];
   double[] copy_y = new double[n];
 
